@@ -1,8 +1,8 @@
 {
   "name": "Oh No You Didn't!",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "manifest_version": 2,
-  "description": "Automatically reload tabs that have crashed (Aw Snap! He's Dead Jim etc.). Handy for Kiosk mode where access is limited.",
+  "description": "Automatically reload tabs that have crashed (Aw Snap! He's Dead Jim etc.) or are disconnected from the network. Handy for Kiosk mode where access is limited.",
   "homepage_url": "http://github.com/unclespode/ohnoyoudidnt",
   "icons": {
     "16": "icons/icon16.png",
@@ -14,5 +14,5 @@
     "scripts": ["src/background.js"],
     "persistent": true
   },
-  "permissions": ["tabs", "http://*/", "https://*/", "file://*/"]
+  "permissions": ["tabs", "webNavigation", "http://*/", "https://*/", "file://*/"]
 }

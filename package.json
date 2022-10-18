@@ -1,9 +1,9 @@
 {
   "private": true,
   "name": "ohnoyoudidnt",
-  "version": "1.0.5",
-  "repository": "https://github.com/andrewspode/ohnoyoudidnt.git",
-  "contributors": ["Andrew Spode <andrew@spode.me>", "Patrick Hollweck <patrick-hollweck@gmx.de>"],
+  "version": "1.0.6",
+  "repository": "https://github.com/e-magon/ohnoyoudidnt.git",
+  "contributors": ["Andrew Spode <andrew@spode.me>", "Patrick Hollweck <patrick-hollweck@gmx.de>", "emagon <emagon@emagon.xyz>"],
   "license": "MIT",
   "devDependencies": {
     "@types/chrome": "^0.0.162"

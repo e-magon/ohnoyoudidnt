@@ -1,9 +1,12 @@
 /*
  * Oh no you didn't!
- * Automatically reload crashed ("aw, snap") tabs
+ * Automatically reload crashed ("aw, snap") and disconnected (with the dino game) tabs
  */
 
 const errorMessages = ["The frame was removed.", "The tab was closed."];
+const networkErrorMessages = ["net::ERR_INTERNET_DISCONNECTED"];
+const tabCheckInterval = 1000; // ms
+const disconnectRetryInterval = 1000; // ms
 
 function reloadCrashedTabs(tabs) {
   for (const tab of tabs) {
@@ -27,7 +30,14 @@ function reloadCrashedTabs(tabs) {
   }
 }
 
+chrome.webNavigation.onErrorOccurred.addListener(async (details) => {
+  if (networkErrorMessages.includes(details.error)) {
+    setTimeout(() => {
+      chrome.tabs.reload(details.tabId);
+    }, disconnectRetryInterval);
+  }
+})
 setInterval(() => {
-  console.log("Checking tabs...");
+  // console.log("Checking tabs...");
   chrome.tabs.query({}, reloadCrashedTabs);
-}, 1000);
+}, tabCheckInterval);
