@@ -1,4 +1,5 @@
 # Oh no you didn't!
+*[Fork that adds the possibility to refresh the page even for the "network disconnected" error]*
 
 Chrome has a habit of crashing, often for no real reason. When running a Kiosk, or Digital Signage - the ability the quickly reload the page is essential. This plugin does exactly that.
 
