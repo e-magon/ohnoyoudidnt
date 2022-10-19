@@ -6,7 +6,7 @@
 const errorMessages = ["The frame was removed.", "The tab was closed."];
 const networkErrorMessages = ["net::ERR_INTERNET_DISCONNECTED"];
 const tabCheckInterval = 1000; // ms
-const disconnectRetryInterval = 1000; // ms
+const disconnectRetryInterval = 5000; // ms
 
 function reloadCrashedTabs(tabs) {
   for (const tab of tabs) {
@@ -33,6 +33,9 @@ function reloadCrashedTabs(tabs) {
 chrome.webNavigation.onErrorOccurred.addListener(async (details) => {
   if (networkErrorMessages.includes(details.error)) {
     setTimeout(() => {
+      console.info(
+        `Reloading disconnected tab (ID: ${details.tabId}")`
+      );
       chrome.tabs.reload(details.tabId);
     }, disconnectRetryInterval);
   }
