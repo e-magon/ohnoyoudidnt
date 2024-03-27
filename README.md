@@ -1,5 +1,12 @@
+## Fork of [andrewspode/ohnoyoudidnt](https://github.com/andrewspode/ohnoyoudidnt)
+
+_This fork adds the possibility to refresh the page even for the "network disconnected/CONNECTION_REFUSED" error_
+
+**Warning**: this fork is compatible with the v3 manifest of Chrome extensions. It seems like that Chrome won't allow executing scripts on crashed tabs, so the extension only reloads disconnected tabs.
+
+---
+
 # Oh no you didn't!
-*[This fork adds the possibility to refresh the page even for the "network disconnected/CONNECTION_REFUSED" error]*
 
 Chrome has a habit of crashing, often for no real reason. When running a Kiosk, or Digital Signage - the ability the quickly reload the page is essential. This plugin does exactly that.
 
@@ -20,7 +27,8 @@ Install the package from the [Chrome Store](https://chrome.google.com/webstore/d
 
 ## How to test?
 
-Copy this into the javascript console of any tab to crash it. (Causes an out of memory error)
+~~Copy this into the javascript console of any tab to crash it. (Causes an out of memory error)~~
+**Update**: Chrome now checks for strings that are too long and will not allow you to crash the tab this way.
 
 ```js
 let memoryEater = "nom";
